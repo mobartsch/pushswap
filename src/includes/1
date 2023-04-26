@@ -1,0 +1,27 @@
+#ifndef CHECKER_H
+# define CHECKER_H
+
+typedef struct s_element{
+	int			data;
+	struct s_element	*next;
+	struct s_element	*prev;
+}	t_element;
+
+typedef struct s_list{
+	struct s_element	*head;
+	struct s_element	*tail;
+}	t_list;
+
+
+void	push_a(t_stack *stack_a, t_stack *stack_b);
+void	push_b(t_stack *stack_a, t_stack *stack_b);
+void	swap_a(t_stack *stack);
+void	swap_b(t_stack *stack);
+void	swap_s(t_stack *stack_a, t_stack *stack_b);
+void	rotate_a(t_stack *stack);
+void	rotate_b(t_stack *stack);
+void	rotate_r(t_stack *stack_a, t_stack *stack_b);
+void	reverse_rotate_a(t_stack *stack);
+void	reverse_rotate_b(t_stack *stack);
+void	reverse_rotate_r(t_stack *stack_a, t_stack *stack_b);
+#endif
