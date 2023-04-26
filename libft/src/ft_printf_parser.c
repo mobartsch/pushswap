@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf_parser.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbartsch <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/14 11:15:12 by mbartsch          #+#    #+#             */
+/*   Updated: 2023/04/18 14:29:03 by mbartsch         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "libft.h"
 
 const char	*printf_atoi(const char *str, t_prints *printer, int mode)
@@ -71,6 +82,8 @@ void	parse_str(const char *str, t_prints *printer)
 	{
 		if (*str == '%')
 		{
+			if (*(str++) == '\0')
+				break ;
 			str = parse_arg(str, printer);
 			print_arg(printer);
 			init_printer(printer);

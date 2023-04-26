@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbartsch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 11:10:02 by mbartsch          #+#    #+#             */
-/*   Updated: 2023/04/18 14:44:11 by mbartsch         ###   ########.fr       */
+/*   Updated: 2023/04/26 13:59:53 by mbartsch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -53,6 +53,8 @@ char	*extract_nl(char *whole_line)
 	if (whole_line[z] == '\n')
 		z++;
 	new_line = (char *)malloc(sizeof(char) * (z + 1));
+	if (!new_line)
+		return (NULL);
 	ft_strlcpy(new_line, whole_line, z + 1);
 	return (new_line);
 }
@@ -78,17 +80,17 @@ char	*from_nl(char *rest)
 char	*get_next_line(int fd)
 {
 	char		*output;
-	static char	*rest[1024];
+	static char	*rest;
 
 	if (BUFFER_SIZE <= 0 || fd < 0)
 	{
-		free(rest[fd]);
+		free(rest);
 		return (NULL);
 	}
-	rest[fd] = read_from_file(fd, rest[fd]);
-	if (!rest[fd])
+	rest = read_from_file(fd, rest);
+	if (!rest)
 		return (NULL);
-	output = extract_nl(rest[fd]);
-	rest[fd] = from_nl(rest[fd]);
+	output = extract_nl(rest);
+	rest = from_nl(rest);
 	return (output);
 }

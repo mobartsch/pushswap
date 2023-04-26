@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.c                                            :+:      :+:    :+:   */
+/*   check_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbartsch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 14:08:14 by mbartsch          #+#    #+#             */
-/*   Updated: 2023/04/21 16:03:04 by mbartsch         ###   ########.fr       */
+/*   Updated: 2023/04/26 13:38:45 by mbartsch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "pushswap.h"
 
-
 static int	ps_atoi(char *str, t_stack *stack_a, t_stack *stack_b)
 {
 	long	nbr;
-	int	minus;
+	int		minus;
 
 	nbr = 0;
 	minus = 0;
@@ -36,6 +35,7 @@ static int	ps_atoi(char *str, t_stack *stack_a, t_stack *stack_b)
 	error_h(stack_a, stack_b);
 	return (0);
 }
+
 static int	check_dup(int nbr, t_stack *stack)
 {
 	t_element	*element;
@@ -78,7 +78,7 @@ int	check_sorted(t_stack *stack)
 int	check_input(int argc, char *argv[], t_stack *stack_a, t_stack *stack_b)
 {
 	int		z;
-	long		nbr;
+	long	nbr;
 
 	z = 1;
 	if (argc == 2)

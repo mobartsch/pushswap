@@ -6,7 +6,7 @@
 /*   By: mbartsch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 13:42:45 by mbartsch          #+#    #+#             */
-/*   Updated: 2023/04/21 15:13:43 by mbartsch         ###   ########.fr       */
+/*   Updated: 2023/04/26 13:17:53 by mbartsch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "pushswap.h"
@@ -31,7 +31,7 @@ t_element	*create_element(int data)
 	if (!new)
 		return (NULL);
 	new->prev = NULL;
-	new->prev = NULL;
+	new->next = NULL;
 	new->data = data;
 	return (new);
 }

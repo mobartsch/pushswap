@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   swap_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbartsch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 13:23:15 by mbartsch          #+#    #+#             */
-/*   Updated: 2023/04/22 14:42:23 by mbartsch         ###   ########.fr       */
+/*   Updated: 2023/04/26 14:27:10 by mbartsch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "checker.h"
@@ -15,8 +15,6 @@ static void	swap(t_stack *stack)
 {
 	int	tmp;
 
-	if (!stack_active(stack))
-		return ;
 	if (stack->head != NULL && stack->head->next != NULL)
 	{
 		tmp = stack->head->data;

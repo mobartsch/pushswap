@@ -6,7 +6,7 @@
 /*   By: mbartsch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 14:31:17 by mbartsch          #+#    #+#             */
-/*   Updated: 2023/04/21 15:15:02 by mbartsch         ###   ########.fr       */
+/*   Updated: 2023/04/26 13:35:09 by mbartsch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "pushswap.h"
@@ -31,6 +31,19 @@ void	freeer(t_stack *stack_a, t_stack *stack_b, int *arr)
 	free_list(stack_a);
 	free_list(stack_b);
 	free(arr);
+}
+
+void	free_split(char **args)
+{
+	int	z;
+
+	z = 0;
+	while (args[z])
+	{
+		free(args[z]);
+		z++;
+	}
+	free(args);
 }
 
 void	error_h(t_stack *stack_a, t_stack *stack_b)

@@ -6,16 +6,15 @@
 /*   By: mbartsch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 14:08:14 by mbartsch          #+#    #+#             */
-/*   Updated: 2023/04/21 16:03:04 by mbartsch         ###   ########.fr       */
+/*   Updated: 2023/04/26 13:34:16 by mbartsch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "pushswap.h"
 
-
 static int	ps_atoi(char *str, t_stack *stack_a, t_stack *stack_b)
 {
 	long	nbr;
-	int	minus;
+	int		minus;
 
 	nbr = 0;
 	minus = 0;
@@ -36,6 +35,7 @@ static int	ps_atoi(char *str, t_stack *stack_a, t_stack *stack_b)
 	error_h(stack_a, stack_b);
 	return (0);
 }
+
 static int	check_dup(int nbr, t_stack *stack)
 {
 	t_element	*element;
@@ -75,29 +75,30 @@ static int	check_sorted(t_stack *stack)
 	return (2);
 }
 
-int	check_input(int argc, char *argv[], t_stack *stack_a, t_stack *stack_b)
+int	check_input(int argc, char *args[], t_stack *stack_a, t_stack *stack_b)
 {
 	int		z;
-	long		nbr;
+	long	nbr;
 
-	z = 1;
+	z = 0;
 	if (argc == 2)
 	{
-		argv = ft_split(argv[1], ' ');
-		if (!argv)
+		args = ft_split(args[1], ' ');
+		if (!args)
 			return (0);
-		z = 0;
+		z = -1;
 	}
-	while (argv[z])
+	while (args[++z])
 	{
-		if (!check_valid(argv[z]))
+		if (!check_valid(args[z]))
 			return (0);
-		nbr = ps_atoi(argv[z], stack_a, stack_b);
+		nbr = ps_atoi(args[z], stack_a, stack_b);
 		if (check_dup(nbr, stack_a))
 			add_list(stack_a, create_element((int)nbr));
 		else
 			return (0);
-		z++;
 	}
+	if (argc == 2)
+		free_split(args);
 	return (check_sorted(stack_a));
 }

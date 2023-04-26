@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   push_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbartsch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 12:55:31 by mbartsch          #+#    #+#             */
-/*   Updated: 2023/04/22 15:35:28 by mbartsch         ###   ########.fr       */
+/*   Updated: 2023/04/26 14:26:47 by mbartsch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "checker.h"
@@ -15,8 +15,6 @@ static void	push(t_stack *stack_push, t_stack *stack_recive)
 {
 	t_element	*element;
 
-	if (!stack_active(stack_push) || !stack_active(stack_recive))
-		return ;
 	element = stack_push->head;
 	if (stack_push->head != NULL)
 	{

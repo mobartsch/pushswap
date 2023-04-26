@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   rotate_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbartsch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 13:30:08 by mbartsch          #+#    #+#             */
-/*   Updated: 2023/04/22 14:40:55 by mbartsch         ###   ########.fr       */
+/*   Updated: 2023/04/26 14:26:54 by mbartsch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "checker.h"
@@ -15,8 +15,6 @@ static void	rotate(t_stack *stack)
 {
 	t_element	*element;
 
-	if (!stack_active(stack))
-		return ;
 	if (stack->head != NULL && stack->head->next != NULL)
 	{
 		element = stack->head;

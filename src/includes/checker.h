@@ -1,11 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbartsch <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/26 13:37:18 by mbartsch          #+#    #+#             */
+/*   Updated: 2023/04/26 13:55:20 by mbartsch         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #ifndef CHECKER_H
 # define CHECKER_H
 
-#include <stdlib.h>
-#include "../../libft/src/includes/libft.h"
+# include <stdlib.h>
+# include "../../libft/src/includes/libft.h"
 
 typedef struct s_element{
-	int			data;
+	int					data;
 	struct s_element	*next;
 	struct s_element	*prev;
 }	t_element;

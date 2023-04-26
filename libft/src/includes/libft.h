@@ -6,7 +6,7 @@
 /*   By: mbartsch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 12:29:09 by mbartsch          #+#    #+#             */
-/*   Updated: 2022/12/12 11:45:47 by mbartsch         ###   ########.fr       */
+/*   Updated: 2023/04/18 14:46:44 by mbartsch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,6 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <unistd.h>
-
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
-# endif
 
 //libft
 typedef struct s_list
@@ -72,23 +68,9 @@ void	ft_lstdelone(t_list	*lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-int		ft_printf(const char *s, ...);
-int		through_string(char *s, va_list *arguments);
-void	check_arguments(const char *arg, va_list *argument, int *len);
-void	print_nbr(int arg, int *len);
-void	print_hexadecimal(unsigned int arg, int *len, int off);
-void	print_void(unsigned long long argument, int *len);
-void	print_unsigned(unsigned int arg, int *len);
-void	print_c(char argument, int *len);
-void	print_str(char *argument, int *len);
-void	ft_putchar(char c);
 
-//get_next_line
-char	*get_next_line(int fd);
-int		is_nl(char *str);
-char	*join_str(char *str1, char *str2);
+//printf
 
-//ft_printf
 typedef struct s_prints{
 	va_list	args;
 	int		hash;
@@ -105,22 +87,29 @@ typedef struct s_prints{
 	char	conv;
 }	t_prints;
 
-void	print_printer(t_prints *printer);
-void	parse_str(const char *str, t_prints *printer);
+int		ft_printf(const char *str, ...);
 void	init_printer(t_prints *printer);
 void	ft_printf_char(t_prints *printer);
-void	ft_printf_str(t_prints *printer);
-void	ft_printf_ptr(t_prints *printer);
 void	ft_printf_dec(t_prints *printer);
 void	ft_printf_uint(t_prints *printer);
+void	ft_printf_ptr(t_prints *printer);
 void	ft_printf_hex(t_prints *printer);
 void	ft_printf_prct(t_prints *printer);
+void	ft_printf_str(t_prints *printer);
+void	parse_str(const char *str, t_prints *printer);
+void	swap_buff(char *buffer, int len);
 void	print_precision(char *str, t_prints *printer);
 void	print_width(t_prints *printer);
 void	ft_put_str(char *buffer, t_prints *printer);
-void	print_hex_vor(t_prints *printer);
-void	swap_buff(char *buffer, int len);
-void	parse_nbr(long nbr, char *buffer, t_prints *printer);
 void	check_len(char *buffer, t_prints *printer);
-void	print_before(t_prints *printer);
+
+//get_next_line
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
+
+char	*get_next_line(int fd);
+int		is_nl(char *str);
+char	*join_str(char *str1, char *str2);
 #endif

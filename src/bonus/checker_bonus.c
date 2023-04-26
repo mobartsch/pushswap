@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbartsch <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/26 13:36:19 by mbartsch          #+#    #+#             */
+/*   Updated: 2023/04/26 14:58:42 by mbartsch         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "checker.h"
 
 static void	free_list(t_stack *stack)
@@ -48,7 +59,7 @@ static int	check_instruction(char *check, t_stack *stack_a, t_stack *stack_b)
 	else if (ft_strncmp(check, "rrr\n", 4) == 0)
 		reverse_rotate_r(stack_a, stack_b);
 	else
-		error_h(stack_a, stack_b);
+		return (0);
 	return (1);
 }
 
@@ -60,10 +71,16 @@ static int	check_sort(t_stack *stack_a, t_stack *stack_b)
 	while (inst)
 	{
 		if (!check_instruction(inst, stack_a, stack_b))
+		{
+			free(inst);
+			get_next_line(-1);
 			error_h(stack_a, stack_b);
+		}
+		free(inst);
 		inst = get_next_line(0);
 	}
-	return (check_sorted(stack_a));	
+	free(inst);
+	return (check_sorted(stack_a));
 }
 
 int	main(int argc, char *argv[])
@@ -72,20 +89,18 @@ int	main(int argc, char *argv[])
 	t_stack	*stack_b;
 	int		z;
 
+	if (argc == 1)
+		return (0);
 	stack_a = create_list();
 	stack_b = create_list();
 	z = check_input(argc, argv, stack_a, stack_b);
-	if (z == 2)
-	{
-		ft_printf("OK\n");
-		return (0);
-	}
-	else if (!z)
+	if (!z)
 	{
 		error_h(stack_a, stack_b);
 		return (0);
 	}
-	z = check_sort(stack_a, stack_b);
+	else
+		z = check_sort(stack_a, stack_b);
 	free_list(stack_a);
 	free_list(stack_b);
 	if (z == 2)

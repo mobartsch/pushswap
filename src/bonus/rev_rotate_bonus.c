@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rev_rotate.c                                       :+:      :+:    :+:   */
+/*   rev_rotate_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbartsch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 13:35:54 by mbartsch          #+#    #+#             */
-/*   Updated: 2023/04/22 14:53:39 by mbartsch         ###   ########.fr       */
+/*   Updated: 2023/04/26 14:27:02 by mbartsch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "checker.h"
@@ -15,8 +15,6 @@ static void	rev_rotate(t_stack *stack)
 {
 	t_element	*element;
 
-	if (!stack_active(stack))
-		return ;
 	if (stack->head != NULL && stack->tail != NULL && stack->tail->prev != NULL)
 	{
 		element = stack->tail;
