@@ -6,10 +6,10 @@
 /*   By: mbartsch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 14:08:14 by mbartsch          #+#    #+#             */
-/*   Updated: 2023/04/26 13:38:45 by mbartsch         ###   ########.fr       */
+/*   Updated: 2023/07/03 14:25:44 by mbartsch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "pushswap.h"
+#include "checker_bonus.h"
 
 static int	ps_atoi(char *str, t_stack *stack_a, t_stack *stack_b)
 {
@@ -91,13 +91,14 @@ int	check_input(int argc, char *argv[], t_stack *stack_a, t_stack *stack_b)
 	while (argv[z])
 	{
 		if (!check_valid(argv[z]))
-			return (0);
+			return (free_split(argv), 0);
 		nbr = ps_atoi(argv[z], stack_a, stack_b);
 		if (check_dup(nbr, stack_a))
 			add_list(stack_a, create_element((int)nbr));
 		else
-			return (0);
+			return (free_split(argv), 0);
 		z++;
 	}
+	free_split(argv);
 	return (check_sorted(stack_a));
 }

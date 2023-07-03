@@ -6,7 +6,7 @@
 /*   By: mbartsch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 14:08:14 by mbartsch          #+#    #+#             */
-/*   Updated: 2023/04/26 13:34:16 by mbartsch         ###   ########.fr       */
+/*   Updated: 2023/07/03 14:10:50 by mbartsch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "pushswap.h"
@@ -91,12 +91,12 @@ int	check_input(int argc, char *args[], t_stack *stack_a, t_stack *stack_b)
 	while (args[++z])
 	{
 		if (!check_valid(args[z]))
-			return (0);
+			return (free_split(args), 0);
 		nbr = ps_atoi(args[z], stack_a, stack_b);
 		if (check_dup(nbr, stack_a))
 			add_list(stack_a, create_element((int)nbr));
 		else
-			return (0);
+			return (free_split(args), 0);
 	}
 	if (argc == 2)
 		free_split(args);

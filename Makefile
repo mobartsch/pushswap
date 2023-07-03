@@ -3,6 +3,7 @@ BONUS_NAME ?= checker
 
 BUILD_DIR ?= ./obj
 SRC_DIRS ?= ./src
+INCL_DIR ?= ./includes
 
 LIB = libft
 LIBS = $(addprefix -L ,$(LIB))
@@ -15,7 +16,7 @@ BONUS_OBJS := $(subst $(SRC_DIRS), $(BUILD_DIR), $(BONUS_SRCS:.c=.o))
 
 DEPS := $(OBJS:.o=.d)
 
-INC_DIRS := $(shell find $(SRC_DIRS) -type d)
+INC_DIRS := $(shell find $(INCL_DIR) -type d)
 INC_FLAGS := $(addprefix -I,$(INC_DIRS))
 
 CC = cc

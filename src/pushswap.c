@@ -6,7 +6,7 @@
 /*   By: mbartsch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 14:02:20 by mbartsch          #+#    #+#             */
-/*   Updated: 2023/04/22 16:06:50 by mbartsch         ###   ########.fr       */
+/*   Updated: 2023/07/03 13:50:31 by mbartsch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "pushswap.h"
@@ -42,7 +42,7 @@ void	sort_stack(t_stack *stack_a, t_stack *stack_b, int *arr)
 	else
 		big_sort(stack_a, stack_b, arr);
 	freeer(stack_a, stack_b, arr);
-}	
+}
 
 int	main(int argc, char *argv[])
 {
@@ -57,7 +57,7 @@ int	main(int argc, char *argv[])
 	stack_b = create_list();
 	z = check_input(argc, argv, stack_a, stack_b);
 	if (z == 2)
-		return (0);
+		return (free_list(stack_a), free_list(stack_b), 0);
 	else if (z == 0)
 	{
 		error_h(stack_a, stack_b);

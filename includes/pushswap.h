@@ -6,13 +6,13 @@
 /*   By: mbartsch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 12:48:52 by mbartsch          #+#    #+#             */
-/*   Updated: 2023/04/26 13:38:07 by mbartsch         ###   ########.fr       */
+/*   Updated: 2023/07/03 13:45:41 by mbartsch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSHSWAP_H
 # define PUSHSWAP_H
 
-# include "../../libft/src/includes/libft.h"
+# include "../libft/includes/libft.h"
 # include <limits.h>
 
 typedef struct s_element{
@@ -45,6 +45,7 @@ void		add_list(t_stack *stack, t_element *element);
 t_element	*create_element(int data);
 int			*fill_arr(t_stack *stack);
 void		freeer(t_stack *stack_a, t_stack *stack_b, int *arr);
+void		free_list(t_stack *stack);
 void		free_split(char **args);
 
 void		tiny_sort(t_stack *stack);

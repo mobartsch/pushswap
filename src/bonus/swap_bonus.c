@@ -6,10 +6,10 @@
 /*   By: mbartsch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 13:23:15 by mbartsch          #+#    #+#             */
-/*   Updated: 2023/04/26 14:27:10 by mbartsch         ###   ########.fr       */
+/*   Updated: 2023/07/03 14:13:33 by mbartsch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "checker.h"
+#include "checker_bonus.h"
 
 static void	swap(t_stack *stack)
 {

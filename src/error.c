@@ -6,12 +6,12 @@
 /*   By: mbartsch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 14:31:17 by mbartsch          #+#    #+#             */
-/*   Updated: 2023/04/26 13:35:09 by mbartsch         ###   ########.fr       */
+/*   Updated: 2023/07/03 13:39:30 by mbartsch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "pushswap.h"
 
-static void	free_list(t_stack *stack)
+void	free_list(t_stack *stack)
 {
 	t_element	*element;
 	t_element	*tmp;

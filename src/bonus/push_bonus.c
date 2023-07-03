@@ -6,10 +6,10 @@
 /*   By: mbartsch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 12:55:31 by mbartsch          #+#    #+#             */
-/*   Updated: 2023/04/26 14:26:47 by mbartsch         ###   ########.fr       */
+/*   Updated: 2023/07/03 14:13:02 by mbartsch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "checker.h"
+#include "checker_bonus.h"
 
 static void	push(t_stack *stack_push, t_stack *stack_recive)
 {
